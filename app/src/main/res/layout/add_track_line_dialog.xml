@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/editText_track_name"
+        android:hint="请输入线路名称"
+        android:ems="10"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <requestFocus/>
+    </EditText>
+    <EditText
+        android:id="@+id/editText_start_location"
+        android:hint="已自动填入起点"
+        android:textColorHint="#FF0000"
+        android:editable="false"
+        android:ems="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       />
+
+</LinearLayout>
