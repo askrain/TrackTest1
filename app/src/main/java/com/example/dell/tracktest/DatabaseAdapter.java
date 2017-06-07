@@ -44,7 +44,7 @@ public class DatabaseAdapter {
     public void updateEndLoc(String endLoc, int id) {
         String sql = "update track set end_loc=? where _id=?";
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.execSQL(sql, new Object[] { endLoc, id });
+        db.execSQL(sql, new Object[]{endLoc, id});
         db.close();
     }
 
@@ -52,7 +52,7 @@ public class DatabaseAdapter {
     public void addTrackDetail(int tid, double lat, double lng) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String sql = "insert into track_detail(tid,lat,lng) values(?,?,?)";
-        db.execSQL(sql, new Object[] { tid, lat, lng });
+        db.execSQL(sql, new Object[]{tid, lat, lng});
         db.close();
     }
 
@@ -61,7 +61,7 @@ public class DatabaseAdapter {
         String sql = "select _id,lat,lng from track_detail where tid=? order by _id desc";
         ArrayList<TrackDetail> list = new ArrayList<TrackDetail>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor c = db.rawQuery(sql, new String[] { String.valueOf(id) });
+        Cursor c = db.rawQuery(sql, new String[]{String.valueOf(id)});
         if (c != null) {
             TrackDetail detail = null;
             while (c.moveToNext()) {
@@ -104,8 +104,8 @@ public class DatabaseAdapter {
         String sql2 = "delete from track_detail where tid=?";
         try {
             db.beginTransaction();
-            db.execSQL(sql2, new Object[] { id });
-            db.execSQL(sql1, new Object[] { id });
+            db.execSQL(sql2, new Object[]{id});
+            db.execSQL(sql1, new Object[]{id});
             db.setTransactionSuccessful();
         } catch (Exception e) {
             e.printStackTrace();
